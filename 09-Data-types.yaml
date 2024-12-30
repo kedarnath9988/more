@@ -1,0 +1,22 @@
+- name: data types 
+  hosts: localhost
+  vars:
+    COURSE: Aws with devops # String 
+    TOOLS: # list 
+      - linux
+      - ansible
+      - jenkins 
+      - terraform
+      - git 
+      - docker 
+      - Kubernetes 
+      - Promethus & Grafana 
+    Experience: # map or dictonary 
+      docker: 2 
+      jenkins: 3 
+      Kubernetes: 4 
+    real_time_Project: true # Boolean 
+  tasks:
+    - name:  printing the info 
+      ansible.builtin.debug:
+        msg: "course is {{COURSE}}, tools like {{TOOLS}} & with Experience is {{Experience}}"
