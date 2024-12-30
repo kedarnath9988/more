@@ -1,0 +1,6 @@
+- name: print something 
+  hosts: localhost
+  tasks:
+    - name: print something 
+      ansible.builtin.debug:
+        msg: hello we are learning anisible, Trainer is siva & duration is 120 hrs
