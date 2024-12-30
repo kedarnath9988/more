@@ -1,0 +1,35 @@
+- name: comap-ring all the variables here
+  hosts: localhost
+  vars: # task  level varisble 
+    - book: "ansible"
+      pages: 100
+      author: "python"
+  vars_files: # variables from the files
+    - vars.yaml
+  vars_prompt: # varibles form the Prompt 
+    - name: USER_NAME
+      prompt: Please enter the USER_NAME
+      private: flase
+    - name: PASSWD
+      prompt: Please enter the password 
+      private: true 
+  become: true
+  tasks:
+    - name: tasklevel variables 
+      vars: # paly level variables  
+        - user: kedarnath
+          password: kedarnath@123
+      ansible.builtin.debug:
+        msg: "username is {{user}} & password is {{password}}"
+    - name: paly level variable
+      ansible.builtin.debug:
+        msg: "book is {{book}}, pages are {{pages}} & author is {{author}}"
+    - name: variables from file 
+      ansible.builtin.debug:
+        msg: "train name is {{TRAIN_NAME}} & DISTANCE is {{DISTANCE}}"
+    - name: vars from the prompt 
+      ansible.builtin.debug:
+        msg: "user_name is {{USER_NAME}} & password is {{PASSWD}}"
+    - name: vars from the innventory file 
+      ansible.builtin.debug:
+      msg: "course is {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}}"

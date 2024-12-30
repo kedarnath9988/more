@@ -1,0 +1,13 @@
+- name: play 1 and task 1 
+  hosts: localhost
+  tasks:
+    - name: print some information 
+      ansible.builtin.debug:
+        msg: "form paly 1 and task 1 "
+
+- name: play2 and task 1 
+  hosts: localhost
+  tasks:
+    - name: printing from play 2 and task 1
+      anisible.buitin.debug:
+        msg: "from play 2 and task 1 " 
