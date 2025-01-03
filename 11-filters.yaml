@@ -1,0 +1,15 @@
+- name: filters or functions 
+  hosts: localhost 
+  become: yes 
+  gather_facts: true 
+  tasks:
+    - name: loop the values in the following list 
+      ansible.builtin.debug:
+        msg: "my tools are {{ items }}"
+      my_list:
+        - ansible 
+        - git 
+        - linux 
+        - jenkins 
+        - docker 
+        - kunernetes 

@@ -1,0 +1,47 @@
+- name: defalut value filter 
+  hosts: localhost
+  vars:
+    COURSE:
+  tasks:
+    - name: print the defalut value of an variable 
+      ansible.builtin.debug:
+        msg: my course is {{COURSE | defalut('AWS')}}
+
+- name: convert to the Upper case
+  hosts: localhost
+  vars:
+    greetings: hello welcome 
+  tasks:
+    - name: Uppercase convert
+      ansible.builtin.debug:
+        msg: {{greetings | Upper}}
+
+- name: to lower case 
+  hosts: localhosts 
+  vars:
+    greetings:  HELLO WELCOME 
+
+  tasks:
+    - name: lowercase 
+      ansible.builtin.debug: 
+        msg: {{ greetings | lower }}
+
+- name: min and max 
+  hosts: localhost
+  vars: 
+    marks: [24,56,76,78,87,]
+  tasks:
+    - name: get min and max 
+      ansible.builtin.debug:
+        msg: min is {{marks | min }} & max is {{marks | max }}
+- name: map or dictonary to items or list 
+  hosts: localhost
+  vars:
+    my_dict:
+    { 
+      
+    }
+  tasks:
+    - name: conversition of dict2items
+      ansible.builtin.debug:
+        msg: 

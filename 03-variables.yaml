@@ -1,6 +1,6 @@
 - name: variables 
   hosts: localhost
-  vars: # this play level 
+  vars: #  play level 
   COURSE: JAVA 
   TRAINER: SIVA 
   TIME : 110 

@@ -1,0 +1,73 @@
+- name: backend configaration 
+  hosts: backend
+  vars:
+    mysql_passwd: ExpenxeApp@1
+    login_host: db.kedarnath123.online 
+  become: true 
+  gather_facts: yes 
+  tasks:
+    - name: disable the nodejs:18 server 
+      ansible.builtin.command: dnf module disable nodejs -y
+
+    - name: enable the nodejs:20 
+      ansible.builtin.command: dnf module enable nodejs:20 -y 
+
+    - name: install the nodejs 
+      ansible.builtin.dnf:
+        name: "{{ items }}"
+        state: installed 
+      my_packages: 
+        - nodejs
+        - mysql
+    
+    - name: create the user
+      ansible.builtin.user:
+        name: expense 
+
+    - name: create the app directory 
+      ansible.builtin.file:
+        name: /app
+        state: directory
+
+    - name: downlode the code 
+      ansible.builtin.get_url:
+        src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+        dest: /tmp/backend.zip 
+
+    - name: unzip the code 
+      ansible.builtin.archive:
+        scr: /tmp/backend.zip
+        dest: /app
+        remote_src: yes 
+      
+    - name: install application dependences or nodejs dependences 
+      ansible.builtin.command: install npm 
+      args:
+        chdir: /app
+
+    - name: copying the backend service 
+      ansible.builtin.copy:
+      scr: backend.service 
+      dest: /etc/systemd/system/backend.service
+      remote_src: yes 
+
+    - name: cheking the password is settedup or not 
+      community.mysql.mysql_db:
+         login_user: root
+         login_password: "{{ mysql_passwd }}"
+         login_host: "{{ login_host }}"
+         target: /app/schema/backend.sql
+         state: dump
+         name: all 
+    
+    - name: restart the backend service 
+      ansible.builtin.systemd_service:
+        state: started
+        name: backend
+
+    - name: start and enable the backend service 
+      ansible.builtin.service:
+        name: backend
+        state: started 
+        enabled: yes 
+

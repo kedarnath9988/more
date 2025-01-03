@@ -2,7 +2,7 @@
   hosts: localhost
   vars:
     COURSE: Aws with devops # String 
-    TOOLS: # list 
+    TOOLS: # list  starts with []
       - linux
       - ansible
       - jenkins 
@@ -11,7 +11,7 @@
       - docker 
       - Kubernetes 
       - Promethus & Grafana 
-    Experience: # map or dictonary 
+    Experience: # map or dictonary  starts with {}
       docker: 2 
       jenkins: 3 
       Kubernetes: 4 
