@@ -1,9 +1,9 @@
 - name: variables 
   hosts: localhost
   vars: #  play level 
-  COURSE: JAVA 
-  TRAINER: SIVA 
-  TIME : 110 
+   COURSE: JAVA 
+   TRAINER: SIVA 
+   TIME : 110 
   tasks:
     - name: play level variables 
       ansible.builtin.debug:
