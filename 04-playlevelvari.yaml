@@ -5,17 +5,13 @@
     TRAINER: siva 
     TIME: 120 
   tasks:
-
     - name: play level variables 
-      vars:  
-        COURSE: "Ansible" 
-        TRAINER: "kedarnath" 
-        TIME: "15 days" 
-      ansible.builtin.debug: 
-        msg:  "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
-
-    - name: tasks level variables 
-      anisible.buitin.debug: 
-        msg:  "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
-
-
+      vars: 
+        COURSE: "ansible"
+        TIME: "15 days"
+        TRAINER: "kedarnath"
+      ansible.builtin.debug:
+        msg: "we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}}"
+    - name: task level variables 
+      ansible.builtin.debug:
+        msg: "we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}}"
