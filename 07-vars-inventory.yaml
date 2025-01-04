@@ -5,3 +5,9 @@
       vars:
         TIME: "120 hrs"
       ansible.builtin.debug:
+        msg: " we are lerning {{COURSE}},trainer is {{TRAINER}} & durationis {{TIME}}"
+
+
+
+
+        
