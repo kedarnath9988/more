@@ -2,5 +2,7 @@
   hosts: localhost
   tasks:
     - name: variable from file 
+      vars:
+        
       ansible.builtin.debug:
         msg: "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"  
