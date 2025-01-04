@@ -1,18 +1,20 @@
 - name: play level variables
   hosts: localhost
-  vars: #play level variable
-    COURSE: AWS
-    TRAINER: siva
-    TIME: 120
+  vars: #play level variable 
+    COURSE: AWS 
+    TRAINER: siva 
+    TIME: 120 
   tasks:
-    - name: play level variables
-      vars: # task level variable
-        - COURSE: Ansible
-        - TRAINER: kedarnath
-        - TIME: 15 days
-      ansible.builtin.debug:
-        msg: "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
+    - name: play level variables 
+      vars: # task level variable 
+          COURSE: Ansible 
+          TRAINER: kedarnath 
+          TIME: 15 days 
+      ansible.builtin.debug: 
+        msg:  "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
 
-    - name: tasks level variables
-      anisible.buitin.debug:
-        msg: "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
+    - name: tasks level variables 
+      anisible.buitin.debug: 
+        msg:  "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
+
+
