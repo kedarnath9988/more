@@ -1,9 +1,9 @@
 - name: play level variables
   hosts: localhost
   vars: #play level variable 
-  COURSE: AWS 
-  TRAINER: siva 
-  TIME: 120 
+    COURSE: AWS 
+    TRAINER: siva 
+    TIME: 120 
   tasks:
     - name: play level variables 
       vars: # task level variable 
