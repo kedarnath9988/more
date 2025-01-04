@@ -7,9 +7,9 @@
   tasks:
     - name: play level variables 
       vars: # task level variable 
-          COURSE: Ansible 
-          TRAINER: kedarnath 
-          TIME: 15 days 
+      COURSE: Ansible 
+      TRAINER: kedarnath 
+      TIME: 15 days 
       ansible.builtin.debug: 
         msg:  "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"
 
