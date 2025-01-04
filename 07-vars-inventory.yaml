@@ -1,8 +1,7 @@
-- name: variables form files 
+- name: variables form inventory  
   hosts: localhost
   tasks:
-    - name: variable from file 
+    - name: variables from the inventiry 
       vars:
-        
+        TIME: "120 hrs"
       ansible.builtin.debug:
-        msg: "hello we are learning {{COURSE}}, Trainer is {{TRAINER}} & duration is {{TIME}} hrs"  
