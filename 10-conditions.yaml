@@ -11,7 +11,7 @@
     - name: printing the User info 
       ansible.builtin.debug:
         msg: "user info is {{User_Expense}}"
-
+        
     - name: if not existed . you need to create 
       ansible.builtin.command: useradd Expense 
       when: User_Expense.rc != 0 

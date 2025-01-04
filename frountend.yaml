@@ -1,0 +1,42 @@
+- name: configure the web or frountend 
+  hosts: frountend
+  become: yes
+  gather_facts: yes 
+  tasks: 
+    - name: install nginx
+      ansible.builtin.dnf: 
+        name: nginx
+        state: latest 
+
+    - nam: start and enable the nginx server 
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes 
+
+    - name: removice the default content 
+      ansible.builtin.file:
+      path: /usr/share/nginx/html/
+      state: absent 
+
+    - name: create the directory
+      ansible.builtin.file:
+      path: /usr/share/nginx/html/
+      state: present
+
+    - name: downlode & unzip the code 
+      ansible.builtin.unarchive:
+        src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+        dest: /usr/share/nginx/html
+        remote_src: yes 
+
+    - name: copy the conf file 
+      ansible.builtin.copy:
+        src: backend.service
+        dest: /etc/nginx/default.d/expense.conf
+        remote_src: yes 
+
+    - name: restart the nginx service 
+      ansible.builtin.service:
+        name: nginx 
+        state: restarted 

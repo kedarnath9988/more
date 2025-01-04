@@ -13,8 +13,15 @@
         name: mysql-server
         state: started 
         enabled: yes 
+
+    - name: install the dependences 
+      ansible.builtin.pip:
+        - name:
+            - PyMySql
+            - cryptography 
+          excuitable: pip3.9 
     - name: cheking the password is settedup or not 
-      community.mysql.mysql_user:
+      community.mysql.mysql_info:
          login_user: root
          login_password: {{ mysql_passwd }}
          filter: version 
