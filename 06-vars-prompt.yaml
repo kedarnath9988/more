@@ -3,14 +3,14 @@
   vars_prompt:
    - name: TRAINER
      prompt: please enter the Trainer name
-     private: flase 
+     private: no 
 
    - name: COURSE
      prompt: please enter the Trainer name
-     private: true 
+     private: yes 
    - name: TIME
      prompt: please enter the Trainer name
-     private: flase  
+     private: no   
     
   tasks: 
     - name: prompt variables 
